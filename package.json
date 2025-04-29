@@ -16,7 +16,9 @@
         "update-incorrect-years": "node --loader ts-node/esm src/scripts/updateIncorrectYears.ts",
         "populate-audio-features": "node --loader ts-node/esm src/scripts/populateAudioFeatures.ts",
         "get-recent-likes": "node --loader ts-node/esm src/scripts/getRecentLikes.ts",
-        "refresh-all-likes": "node --loader ts-node/esm src/scripts/refreshAllLikess.ts"
+        "refresh-all-likes": "node --loader ts-node/esm src/scripts/refreshAllLikes.ts",
+        "start": "node --loader ts-node/esm src/butterfly.ts",
+        "start:prod": "npx tsc && node dist/butterfly.js"
     },
     "keywords": [],
     "author": "",
