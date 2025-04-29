@@ -1,0 +1,9 @@
+CREATE INDEX idx_date_played ON nuts(date_played);
+CREATE INDEX idx_compatibility_tree_root_id ON compatibility_tree(root_id);
+CREATE INDEX idx_compatibility_tree_branch_id ON compatibility_tree(branch_id);
+CREATE INDEX idx_played_at ON history(played_at);
+CREATE INDEX idx_history_nut_id ON history(nut_id);
+CREATE INDEX idx_queue_added_at ON queue(added_at);
+CREATE INDEX idx_queue_nut_id ON queue(nut_id);
+CREATE INDEX idx_breaks_type ON breaks(type);
+CREATE INDEX idx_breaks_date_added ON breaks(date_added);

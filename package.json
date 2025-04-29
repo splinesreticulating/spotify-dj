@@ -1,0 +1,50 @@
+{
+    "name": "butterfly",
+    "version": "0.0.1",
+    "description": "Let your music take flight.",
+    "main": "butterfly.js",
+    "type": "module",
+    "scripts": {
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "find-unused": "ts-prune",
+        "lint": "biome check",
+        "lint:fix": "biome check --fix",
+        "update-tags": "node --loader ts-node/esm src/scripts/updateTags.ts",
+        "update-tags-interactive": "node --loader ts-node/esm src/scripts/updateTags-interactive.ts",
+        "update-incorrect-years": "node --loader ts-node/esm src/scripts/updateIncorrectYears.ts",
+        "populate-audio-features": "node --loader ts-node/esm src/scripts/populateAudioFeatures.ts",
+        "get-recent-likes": "node --loader ts-node/esm src/scripts/getRecentLikes.ts",
+        "refresh-all-likes": "node --loader ts-node/esm src/scripts/refreshAllLikess.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@aws-sdk/client-cloudwatch-logs": "^3.787.0",
+        "@biomejs/biome": "^1.9.4",
+        "axios": "^1.7.7",
+        "chalk": "^5.3.0",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "open": "^10.1.0",
+        "pg": "^8.13.1",
+        "winston": "^3.17.0",
+        "winston-cloudwatch": "^6.3.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.8.7",
+        "@types/open": "^6.2.1",
+        "@types/pg": "^8.11.10",
+        "@types/pino": "^7.0.5",
+        "@vitest/coverage-v8": "^2.1.5",
+        "ts-node": "^10.9.2",
+        "ts-prune": "^0.10.3",
+        "typescript": "^5.7.2",
+        "vitest": "^2.1.8"
+    },
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}
