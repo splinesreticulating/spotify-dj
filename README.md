@@ -4,6 +4,8 @@ Let your music take flight.
 
 Spotify DJ turns your Spotify music library into a smart, automated radio station. It analyzes your collection and plays songs in a seamless, perfectly flowing order—just like a professional DJ.
 
+> 🛰️ Part of [Queue FM](https://github.com/splinesreticulating/queuefm) – a Spotify-powered radio station with a smart, self-updating playlist.
+
 ---
 
 ## 🎵 Features
