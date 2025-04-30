@@ -106,16 +106,13 @@ const levenshteinDistance = (a: string, b: string): number => {
 }
 
 export const handleDatabaseError = (error: unknown) => {
-    if (typeof error === 'object' && error !== null && 'code' in error) {
-        logger.error(
-            chalk.red(
-                `Database error code: ${(error as { code?: string }).code}`,
-            ),
-        )
+    if (error instanceof Error) {
+        logger.error(chalk.red(`Database error message: ${error.message}`));
+        logger.error(chalk.red(`Database error stack: ${error.stack}`));
     } else {
-        logger.error(chalk.red('Unknown database error'))
+        logger.error(chalk.red(`Database error: ${JSON.stringify(error, null, 2)}`));
     }
-    logger.debug(error)
+    logger.debug('Full error object:', error);
 }
 
 export const flipACoin = (): boolean => Math.random() < 0.5
