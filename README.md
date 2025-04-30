@@ -1,8 +1,8 @@
-# Butterfly
+# Spotify DJ
 
 Let your music take flight.
 
-Butterfly turns your Spotify music library into a smart, automated radio station. It analyzes your collection and plays songs in a seamless, perfectly flowing order—just like a professional DJ.
+Spotify DJ turns your Spotify music library into a smart, automated radio station. It analyzes your collection and plays songs in a seamless, perfectly flowing order—just like a professional DJ.
 
 ---
 
@@ -92,8 +92,6 @@ Contributions are welcome! Please open issues or pull requests for bug fixes, fe
 
 ## 📄 License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License.
 
 ---
-
-If you enjoy Butterfly, consider starring the repo and sharing your feedback!
