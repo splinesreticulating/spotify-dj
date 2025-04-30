@@ -15,7 +15,7 @@ export const dbClient = new Client({
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
     port: Number(process.env.POSTGRES_PORT),
-    ssl: isLocal ? false : { rejectUnauthorized: true },
+    ssl: isLocal ? false : { rejectUnauthorized: false },
 })
 
 logger.debug(`Connecting to database at ${process.env.POSTGRES_HOST}`)
