@@ -48,7 +48,7 @@ export async function monitorPlayback(
         Number(settings[Settings.retryDelay]) || Defaults.retryDelay
     const SHORT_RETRY = 2_000 // Short retry for recoverable errors
 
-    const retry = async (delay: number, token: string = accessToken) => {
+    const retry = async (delay: number, token: string) => {
         logger.debug(`Next check @ ${getFutureTime(delay)}...`)
         setTimeout(
             () => monitorPlayback(token, refreshToken, updateAccessToken),
@@ -59,9 +59,9 @@ export async function monitorPlayback(
     const executeWithTokenRefresh = async <T>(
         operation: (token: string) => Promise<T>,
     ): Promise<T> => {
-        let token = accessToken
+        let currentToken = accessToken;
         try {
-            return await operation(token)
+            return await operation(currentToken);
         } catch (error) {
             if (
                 typeof error === 'object' &&
@@ -69,14 +69,14 @@ export async function monitorPlayback(
                 'status' in error &&
                 error.status === 401
             ) {
-                const newToken = await refreshAccessToken(refreshToken)
+                const newToken = await refreshAccessToken(refreshToken);
                 if (newToken) {
-                    updateAccessToken(newToken)
-                    token = newToken
-                    return operation(newToken)
+                    updateAccessToken(newToken);
+                    currentToken = newToken;
+                    return operation(currentToken);
                 }
             }
-            throw error
+            throw error;
         }
     }
 
@@ -87,7 +87,7 @@ export async function monitorPlayback(
         // Handle no track or expired token
         if (!nowPlaying || nowPlaying.status === NowPlayingStatus.noTrack) {
             logger.info('Dead air! Dead air!!')
-            return retry(RETRY_DELAY)
+            return retry(RETRY_DELAY, accessToken)
         }
 
         logger.info(formatNowPlaying(nowPlaying))
@@ -121,7 +121,7 @@ export async function monitorPlayback(
                 const nextSong = await dequeueNextSong()
                 if (!nextSong) {
                     logger.error('Failed to dequeue the next song.')
-                    return retry(SHORT_RETRY)
+                    return retry(SHORT_RETRY, accessToken)
                 }
 
                 const playlistId =
@@ -131,14 +131,14 @@ export async function monitorPlayback(
                 )
 
                 logger.info(`Added "${nextSong.title}" to playlist`)
-                await retry(30_000)
+                await retry(30_000, accessToken)
             } catch (error) {
                 logger.error(`Error processing queue: ${error}`)
-                await retry(RETRY_DELAY)
+                await retry(RETRY_DELAY, accessToken)
             }
         }, timeUntilNext)
     } catch (error) {
         logger.error(`Playback monitoring error: ${error}`)
-        retry(RETRY_DELAY)
+        retry(RETRY_DELAY, accessToken)
     }
 }
