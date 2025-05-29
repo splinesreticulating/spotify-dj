@@ -4,11 +4,11 @@ Let your music take flight.
 
 Spotify DJ turns your Spotify music library into a smart, automated radio station. It analyzes your collection and plays songs in a seamless, perfectly flowing order—just like a professional DJ.
 
-> 🛰️ Part of [Queue FM](https://github.com/splinesreticulating/queuefm) – a Spotify-powered radio station with a smart, self-updating playlist.
+> Part of [Queue FM](https://github.com/splinesreticulating/queuefm) – a Spotify-powered radio station with a smart, self-updating playlist.
 
 ---
 
-## 🎵 Features
+## Features
 
 - **Automatic Playlist Flow:** Enjoy your Spotify songs in a DJ-style flow based on musical compatibility (key, BPM, energy, and more).
 - **Personalized Radio:** Uses your liked songs and playlists to generate a unique listening experience.
@@ -16,7 +16,7 @@ Spotify DJ turns your Spotify music library into a smart, automated radio statio
 - **Database Integration:** Supports PostgreSQL for robust music metadata and history.
 - **Tagging & Audio Features:** Integrates with services like Last.fm and SoundStat for rich audio features and auto-tagging.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18+ recommended)
@@ -63,7 +63,7 @@ See `.env.example` for all available configuration options.
 - `user-library-read` – Access your liked songs
 - `playlist-read-private` – Read private playlists
 
-## 🛠 Usage
+## Usage
 
 Start the main server:
 ```bash
@@ -80,15 +80,9 @@ Then, open [http://localhost:3000/login](http://localhost:3000/login) in your br
 
 See `package.json` for more scripts.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please open issues or pull requests for bug fixes, features, or improvements.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
 ---
 
